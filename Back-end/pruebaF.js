@@ -1,4 +1,4 @@
 //fecha actual de creacion
 const fechaActual = new Date();
-fechaGenerador = fechaActual.toISOString()
-console.log(fechaGenerador)
+fechaConstructor = fechaActual.toISOString()
+console.log(fechaConstructor)
