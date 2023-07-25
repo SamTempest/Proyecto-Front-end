@@ -1,5 +1,6 @@
 {
     "titulo":"Encuesta de la UVM",
+    "descripcion":"Encuesta de la UVM para los estudiantes",
     "pregunta":[{"n-pregunta":"Precio?"},{"n-pregunta":"Factible?"}],
     "propietario_usuarioUnico":"1",
 
