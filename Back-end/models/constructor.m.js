@@ -16,4 +16,4 @@ class Constructor {
   }
 }
 
-module.exports = Constructor;
+module.exports = new Constructor();

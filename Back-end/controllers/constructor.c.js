@@ -1,7 +1,7 @@
-const async = require("hbs/lib/async");
+const constructorModels = require("../models/constructor.m")
 
 
-class builder{
+class constructor{
     async save(req, res, next){
         console.log(req.body);
         const {titulo,pregunta,fecha,propietario_usuarioUnico} = req.body
@@ -11,4 +11,4 @@ class builder{
 
 }
 
-module.exports = new builder();
+module.exports = new constructor();
