@@ -1,5 +1,10 @@
 {
     "titulo":"Encuesta de la UVM",
     "pregunta":[{"n-pregunta":"Precio?"},{"n-pregunta":"Factible?"}],
-    "propietario_usuarioUnico":1
+    "propietario_usuarioUnico":"1",
+
+    "usuario_unico":"Pepito",
+    "contrasena": "cheetos",
+    "correo":"pepito@gmail.com",
+    "nombre_completo":"Pepito Barrios Rangel"
 }

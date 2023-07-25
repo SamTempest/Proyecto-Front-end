@@ -1,4 +1,5 @@
 const registroModels = require("../models/registro.m")
+const bcryptjs = require('bcryptjs');
 
 class registroControllers {
     
@@ -7,6 +8,9 @@ class registroControllers {
         console.log(req.body);
         const { usuario_unico , contrasena , nombre_completo , correo } = req.body
         const datos = { usuario_unico , contrasena , nombre_completo , correo }
+
+
+
         next()
     }
 }
