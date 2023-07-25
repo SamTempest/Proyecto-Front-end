@@ -1,7 +1,178 @@
-.pregunta{
-    color: aqua;
+*{/***********Estilos globales********** */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #F8F6F4;
 }
 
-.containerPregunta{
+/* **********Estilos del heider ************/
+header{
+    display: flex;
+    justify-content: center;
+    min-height: 10vh;
+    border-bottom: #C4DFDF solid .4vw;
+    width: 100%;
+    padding: 1vw 0;
+}
+header div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header, header div,header div h1 {
+    background: #E3F4F4;
+}
+
+.logo{
+    border-radius: 50%;
+    border: #C4DFDF solid 4px;
+    width: 8vw;
+    height: 8vw;
+    margin-left: 0px;
+    background-image: url(../pautasProyecto.PNG);
+}
+.title{
+    width: 65%;
+}
+.title h1{
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 3vw;
+    font-family: sans-serif;
+    color: #454545;
+}
+.button button{
+    display: flex;
+    flex-direction: column;
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 0;
+    background: transparent;
+    gap: .5rem;
+}
+
+.button button > div {
+    background: #454545;
+    height: 0.16vw;
+    width: 100%;
+    border-radius: 0.4vw;
+    transition: all .5s;
+    transform-origin: left;
+    margin-top: 0.4vw;
+}
+
+
+.button:hover div:first-child{
+    transform: rotate(45deg);
+}
+.button:hover div:nth-child(2){
+    opacity: 0;
+}
+.button:hover div:last-child{
+    transform: rotate(-45deg);
+}
+
+
+/* ********************Estilos del body******************** */
+
+
+.subTitle{
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 52%;
+    font-size: 1.5vw;
+    height: 6vw;
+    color: #454545;
+}
+
+
+
+
+/* Estilos de los botones */
+.conteinerButton{
+    padding: 1vw 4vw ;   
+    height: 5vw;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2vw;
+    position:sticky;
+    top: 0vw;
+    z-index: 100;
+    border-bottom: solid .3vw #C4DFDF;
+}
+
+.boton{
+    width: 15vw;
+    height: 3vw;
+    border-radius: .8vw;
+    font-size: 1.5vw;
+    border: solid 0.2vw #454545;
+    color: #454545;
+    transition: all 0.2s ease-in-out;
+}
+.botonGuardar{
+    background-color: #C4DFDF;
+}
+.botonEliminar{
+    background-color: #C4DFDF;
+}
+.botonAñadir{
+    background-color: #C4DFDF;
+}
+
+
+.boton:hover{
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    background-color: #E3F4F4;
+}
+
+
+
+
+
+
+
+
+/* Estilos del contenedor de le encuesta */
+.containerEncuesta{
+    background-color: #F8F6F4;
+    margin: 1% 4%;
+    width: 91vw;
+    min-height: 67vw;
+    overflow: hidden;
+    display: block;
+    border-radius: 1.3vw;
+    border: #C4DFDF solid .4vw;
+}
+.preguntadiv{
+    background-color: #F8F6F4;
+    
+}
+
+/* Estilos de las preguntas generadas */
+.pregunta{
+    min-width: 100%;
+    min-height: 5vw;
+    height: auto;
+    background-color: #E3F4F4;
+    border: none;
+    border-bottom:  #C4DFDF solid .3vw;
+    font-family: sans-serif;
+    font-size:  1.7vw;
+    margin-top: 1vw;
+    border-radius: 1vw;
+    padding: 1.5vw;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.tituloPregunta input{
+    font-size: 3vw;
+}
+
+
+.conteinerPregunta{
     border: solid #252525 1px;
 }

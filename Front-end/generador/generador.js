@@ -10,11 +10,11 @@ let numeroRespuesta = [];
 let existePregunta = 0;
 
 
-//Se inicializa un escuchador de eventos para generar los elementos HTML
+//Se anicializa un escuchador de eventos para generar los elmentos HTML
 añadir.addEventListener(`click`, anadirElemento)
 
 
-//función a ejecutar al hacer click en el boton añadir
+//funcion a ejecutar al hacer click en el boton añadir
 function anadirElemento(){
     //Se realiza el conteo de las pregutas
     existePregunta = existePregunta +1;
@@ -24,7 +24,7 @@ function anadirElemento(){
 
     //Se generan los elementos HTML y sus respectivas clases
     let conteinerPregunta = document.createElement("div")//contenedor
-    conteinerPregunta.classList.add("conteinerPregunta");
+    conteinerPregunta.classList.add("preguntadiv");
     conteinerPregunta.setAttribute("id", existePregunta);
 
     let pregunta = document.createElement("input");//cuadro de texto
@@ -37,6 +37,7 @@ function anadirElemento(){
 
     if (existePregunta <= 1) {
         pregunta.setAttribute("placeholder", "Titulo de la encuesta");//se designa el primer dato del array como el titulo de la encuesta
+        conteinerPregunta.classList.add("tituloPregunta");
     }
 }
 
@@ -77,3 +78,15 @@ function guardarElemento() {//Se utiliza un bucle para que se ejecute por cada u
          location.reload();//se refresca la paguina
 }
 
+
+
+
+const CerrarButton = document.getElementById("CerrarButton");
+
+//Cerrar Secion
+const logout = () => {
+    sessionStorage.removeItem('token');
+    window.location = "../login/login.html"
+}
+
+CerrarButton.addEventListener("click", logout);
