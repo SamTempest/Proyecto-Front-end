@@ -5,11 +5,16 @@ class registroControllers {
     
     //registrar nuevo usuario
     async save(req, res, next) {
-        console.log(req.body);
-        const { usuario_unico , contrasena , nombre_completo , correo } = req.body
-        const datos = { usuario_unico , contrasena , nombre_completo , correo }
+        const { usuario_unico , contrasena , nombre_completo , correo } = req.body;
+        const datos = { usuario_unico , contrasena , nombre_completo , correo };
 
+        //encriptado
+        let encriptado = await bcryptjs.hash(datos.contrasena, 8);
+        datos.contrasena = encriptado;
+        console.log(datos.contrasena)
+        console.log(datos)
 
+        registroModels.guardarDB(datos)
 
         next()
     }

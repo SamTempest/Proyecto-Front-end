@@ -1,6 +1,6 @@
 const conectandoDB = require("../connection/conexion");
 
-class Constructor {
+class registroModels {
 
   guardarDB(datos) {
     return new Promise( (resolve, reject) => {
@@ -13,4 +13,4 @@ class Constructor {
   }
 }
 
-module.exports = new Constructor();
+module.exports = new registroModels();
