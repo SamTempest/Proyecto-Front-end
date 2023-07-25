@@ -11,6 +11,16 @@ class registroModels {
       });
     })
   }
+
+  verDB(){
+    return new Promise( (resolve, reject) => {
+      //La DB seleccionara todos los usuarios
+      conectandoDB.query('SELECT * FROM `usuarios`', function (error, results, fields) {
+          if (error) reject (error);
+          resolve (results);
+      });
+    })
+  }
 }
 
 module.exports = new registroModels();
