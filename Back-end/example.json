@@ -2,5 +2,5 @@
     "titulo":"Encuesta de la UVM",
     "pregunta":[{"n-pregunta":"Precio?"},{"n-pregunta":"Factible?"}],
     "fecha":"",
-    "propietario-usuarioUnico":"PedroJH_1234"
+    "propietario_usuarioUnico":"PedroJH_1234"
 }
