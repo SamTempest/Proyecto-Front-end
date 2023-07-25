@@ -1,20 +1,15 @@
 const conectandoDB = require("../connection/conexion");
 
 class Constructor {
-  async enviar_a_base(parametros) {
-    try {
-      // Query con promesas
-      const [rows] = await connection.query(
-        'INSERT INTO `formularios` set ?', [parametros], function(err, results) {
-          console.log(results);
-        }
-      );
 
-      console.log(rows); // resultados
-
-    } catch (error) {
-      console.error(error);
-    }
+  enviar_a_base(parametros) {
+    return new Promise( (resolve, reject) => {
+      //La DB seleccionara todos los formularios
+      conectandoDB.query('INSERT INTO `formularios` set ?',[parametros], function (error, results, fields) {
+          if (error) reject (error);
+          resolve (results);
+      });
+  })
   }
 }
 
