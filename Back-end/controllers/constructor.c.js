@@ -1,26 +1,21 @@
 const constructorModels = require("../models/constructor.m")
-
+const fechaActual = new Date();
 
 class constructor{
-    async save(req, res, next){
+    async guardar(req, res, next){
         console.log(req.body);
-        const fechaActual = new Date();
-    
-        const {titulo,pregunta,propietario_usuarioUnico} = req.body
+        const {titulo,pregunta, descripcion,propietario_usuarioUnico} = req.body
 
-        var usuario_creador = propietario_usuarioUnico
-        var descripcion = "Vacía de momento"
-        var fecha_modificacion =  fechaActual.toISOString()
-        var fecha_creacion = fechaActual.toISOString()
-
+        let usuario_creador = propietario_usuarioUnico
+        let fecha_modificacion =  fechaActual.toISOString()
+        let fecha_creacion = fechaActual.toISOString()
+        
         const parametros = { usuario_creador, titulo, descripcion, fecha_modificacion, fecha_creacion }
         
-        constructorModels.enviar_a_base(parametros)
+        constructorModels.enviarFormulario(parametros)
         
         next()
     }
-
-
 }
 
 module.exports = new constructor();
