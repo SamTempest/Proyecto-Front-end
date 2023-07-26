@@ -7,5 +7,32 @@
     "usuario_unico":"Pepito",
     "contrasena": "cheetos",
     "correo":"pepito@gmail.com",
-    "nombre_completo":"Pepito Barrios Rangel"
+    "nombre_completo":"Pepito Barrios Rangel",
+
+
+    "JSONformulario":"",
+
+    "titulo":"string",
+    "descripcion":"string",
+    "pregunta":[{"n_pregunta":"string?"},{"n_pregunta":"string?"}],
+    
+    
+    "JSONregistro":"",
+
+    "usuario_unico":"string",
+    "contrasena": "string",
+    "correo":"string",
+    "nombre_completo":"string",
+
+
+    "JSONlogin":"",
+
+    "usuario_unico":"string",
+    "contrasena": "string",
+
+
+    "JSONrepuestas":"",
+
+    "id_pregunta":"number",
+    "respuesta":"string"
 }
