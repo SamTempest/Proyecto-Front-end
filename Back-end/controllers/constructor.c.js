@@ -14,24 +14,33 @@ class constructor{
         
         try {
             const parametros = { usuario_creador, titulo, descripcion, fecha_modificacion, fecha_creacion }
-        console.log(parametros);
             const resultadoFormulario = await constructorModels.guardarFormulario(parametros)
             console.log('resultado: ', resultadoFormulario);            
             const formulario = resultadoFormulario.insertId
 
             for (let i = 0; i < arrayPregunta.length; i++) {
-                let pregunta = arrayPregunta[i].n_pregunta
+                try {
+                    let pregunta = arrayPregunta[i].n_pregunta
                 let parametrosDePregunta = {pregunta,formulario}
-
+                
                 const resultadoPreguntas = await constructorModels.guardarPreguntas(parametrosDePregunta)
                 console.log(resultadoPreguntas);
+                } catch (error) {
+                    console.log("error interno");
+                    throw error
+                }
             }
 
-
+            res.status("200").json({"Info":{"Resultado":"Se agregó correctamente"}})
         } catch (error) {
-            console.log(error.sqlMessage);
+            console.log("error externo");
+            if (error.sqlMessage) {
+                console.log(error.sqlMessage);
+            } else {
+                console.log(error);
+            }
+            res.status("404").json({"Info":{"Error":error}})
         }
-
         next()
     }
 }
