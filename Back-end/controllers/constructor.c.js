@@ -1,3 +1,4 @@
+const { log } = require("console");
 const constructorModels = require("../models/constructor.m")
 const fechaActual = new Date();
 
@@ -9,11 +10,28 @@ class constructor{
         let usuario_creador = propietario_usuarioUnico
         let fecha_modificacion =  fechaActual.toISOString()
         let fecha_creacion = fechaActual.toISOString()
+        let arrayPregunta = pregunta
         
-        const parametros = { usuario_creador, titulo, descripcion, fecha_modificacion, fecha_creacion }
-        
-        constructorModels.enviarFormulario(parametros)
-        
+        try {
+            const parametros = { usuario_creador, titulo, descripcion, fecha_modificacion, fecha_creacion }
+        console.log(parametros);
+            const resultadoFormulario = await constructorModels.guardarFormulario(parametros)
+            console.log('resultado: ', resultadoFormulario);            
+            const formulario = resultadoFormulario.insertId
+
+            for (let i = 0; i < arrayPregunta.length; i++) {
+                let pregunta = arrayPregunta[i].n_pregunta
+                let parametrosDePregunta = {pregunta,formulario}
+
+                const resultadoPreguntas = await constructorModels.guardarPreguntas(parametrosDePregunta)
+                console.log(resultadoPreguntas);
+            }
+
+
+        } catch (error) {
+            console.log(error.sqlMessage);
+        }
+
         next()
     }
 }
