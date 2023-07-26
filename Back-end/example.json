@@ -23,6 +23,8 @@
     "contrasena": "string",
     "correo":"string",
     "nombre_completo":"string",
+    "edad":"number",
+    "fecha_nacimiento":"date",
 
 
     "JSONlogin":"",

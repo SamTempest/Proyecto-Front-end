@@ -13,21 +13,21 @@ class registroControllers {
         console.log('estamos en datos')
 
         //verificaciones
-        // try {
-        //     const listado = await registroModels.verDB()
-        //     console.log('estamos en registro')
-        //     console.log(listado)
-        //     listado.forEach(e => {
-        //       if (e.usuario_unico == datos.usuario_unico) {
-        //         console.log('Nombre de usuario ya existente')
-        //         next()
-        //       }
-        //       if (e.correo == datos.correo) {
-        //         console.log('El correo ingresado ya tiene una cuenta')
-        //         next()
-        //       }
-        //     });
-        // } catch (error) { console.error(error) }
+        try {
+            const listado = await registroModels.verDB()
+            console.log('estamos en registro')
+            console.log(listado)
+            listado.forEach(e => {
+              if (e.usuario_unico == datos.usuario_unico) {
+                console.log('Nombre de usuario ya existente')
+                next()
+              }
+              if (e.correo == datos.correo) {
+                console.log('El correo ingresado ya tiene una cuenta')
+                next()
+              }
+            });
+        } catch (error) { console.error(error) }
 
         //encriptado
         let encriptado = await bcryptjs.hash(datos.contrasena, 8);
