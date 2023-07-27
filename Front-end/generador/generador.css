@@ -49,13 +49,13 @@ header, header div,header div h1 {
     height: 2.7rem;
     border: 0;
     background: transparent;
-    gap: .5rem;
+    gap: .65vw;
 }
 
 .button button > div {
     background: #454545;
     height: 0.16vw;
-    width: 100%;
+    width: 3.52vw;
     border-radius: 0.4vw;
     transition: all .5s;
     transform-origin: left;

@@ -1,0 +1,87 @@
+*{/***********Estilos globales********** */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #c8c6c4;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+}
+
+.superior{
+    height: 30vw;
+    width: 100%;
+    background-color: #E3F4F4;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1;
+}
+
+.superior h1{
+    color: #c8c6c4;
+    padding: 1;
+    margin: 0;
+    font-size: 9vw;
+    font-weight: 600;
+    background-color: #E3F4F4;
+    transform: translateY(1vw);
+}
+
+
+.inferior{
+    height: 30vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+}
+
+.inferior h3{
+    font-size: 4vw;
+    position: relative;
+    transform: translateY(-5vw);
+    font-weight: 100;
+    color: #454545;
+}
+
+.inferior h4 {
+    position: relative;
+    transform: translateY(-1.5vw);
+    color: #454545;
+    font-size: 1.75vw;
+    font-weight: 700;
+}
+
+.inferior span{
+    border-radius: 1.5vw;
+    padding: 1vw  2vw;
+    display: block;
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E3F4F4;
+    font-weight: 700;
+    transition: all 0.1s;
+}
+
+.inferior a {
+    color: #454545;
+    text-decoration: none;
+}
+
+.inferior span:hover{
+    position: relative;
+    transform: scale(1.1);
+    border: #454545 solid 0.04vw;
+}
+
+

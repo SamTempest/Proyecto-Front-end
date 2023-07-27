@@ -4,6 +4,7 @@ const containerEncuesta = document.getElementById("generador");
 const eliminar = document.getElementById("eliminar");
 const guardar = document.getElementById("guardar");
 
+
 //Se generan los array para contener los datos a enviar
 let enviar = []
 let listaPreguntas = [];
@@ -139,16 +140,3 @@ function guardarElemento() {
 
     }
 }
-
-
-
-
-const CerrarButton = document.getElementById("CerrarButton");
-
-//Cerrar Secion
-const logout = () => {
-    sessionStorage.removeItem('token');
-    window.location = "../login/login.html"
-}
-
-CerrarButton.addEventListener("click", logout);

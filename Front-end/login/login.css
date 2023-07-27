@@ -67,3 +67,12 @@ form button{
     padding: 0.8vw 1.5vw;
     font-size: 1.6vw;
 }
+
+.fecha{
+    font-size: 1.5vw;
+    color: #999;
+    font-weight: 100;
+}
+.date{
+    transform: translateX(1.6vw);
+}
