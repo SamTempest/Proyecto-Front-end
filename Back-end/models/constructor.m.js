@@ -20,6 +20,15 @@ class Constructor {
       })
     })
   } 
+
+  leerTodosFormularios(){
+    return new Promise((resolve, reject) => {
+      conectandoDB.query('SELECT `formularios`.*, `preguntas`.`pregunta` FROM `formularios` LEFT JOIN `preguntas` ON `preguntas`.`formulario` = `formularios`.`id`; ', function(error,resultado){
+        if (error) reject(error);
+        resolve(resultado);
+      })
+    })
+  }
 }
 
 module.exports = new Constructor();

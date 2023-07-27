@@ -43,6 +43,31 @@ class constructor{
         }
         next()
     }
+
+    async leerTodos(req, res, next){
+        // Vamos a buscar todos los de las base de datos 
+        let formulario = []
+        let pregunta = []
+        let guardado = false
+        // primero necesitamos un model que nos devuelva todos los de base de datos 
+        try {
+            const resultado = await constructorModels.leerTodosFormularios()
+            resultado.forEach(resultados => {
+            
+                guardado = resultado.filter(formularios => formularios.id == resultados.id)
+
+
+                console.log(guardado);
+            });
+            
+            res.send('nice').status("200")
+        } catch (error) {
+            
+        }
+        
+
+
+    }
 }
 
 module.exports = new constructor();
