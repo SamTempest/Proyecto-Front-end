@@ -1,4 +1,3 @@
-const { log } = require("console");
 const constructorModels = require("../models/constructor.m")
 const fechaActual = new Date();
 

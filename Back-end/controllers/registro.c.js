@@ -7,13 +7,19 @@ class registroControllers {
     //registrar nuevo usuario
     async save(req, res, next) {
         //datos
-        const { usuario_unico , contrasena , nombre_completo , correo } = req.body;
-        const datos = { usuario_unico , contrasena , nombre_completo , correo };
+        const { usuario_unico , contrasena , nombre_completo , correo , edad, fecha_nacimiento } = req.body;
+        const datos = { usuario_unico , contrasena , nombre_completo , correo, edad, fecha_nacimiento };
 
         console.log('estamos en datos')
 
         //verificaciones
          try {
+            if (!Number(datos.edad)) {
+                throw ("Edad tiene que estar representada como número")
+            }
+            if (isNaN(Date.parse(datos.fecha_nacimiento))) {
+                throw ("La fecha tiene que estar representada como Date")
+            }
              const listado = await registroModels.verDB()
              console.log('estamos en registro')
              console.log(typeof(listado))
@@ -34,11 +40,12 @@ class registroControllers {
             console.log(datos)
 
             registroModels.guardarDB(datos)
-            next()
             
+            res.status('200').json({"Info":{"Resultado":"Se agregó correctamente"}})
         
         } catch (error) {
             console.error(error) 
+            res.status('404').json({"Info":{"Error":error}});
         }
 
 
