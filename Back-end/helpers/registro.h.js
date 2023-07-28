@@ -6,8 +6,9 @@ class registrar{
     async tockeRegistrar(inicia){
         const resultado = await JWT.sign(
             {
-                name: inicia.usuario_unico
-                
+                name: inicia.usuario_unico,
+                rol: "encuestador"
+
             },
             process.env.SECRETO,
             {
@@ -22,6 +23,15 @@ class registrar{
             path:'/'
 
         })
+    }
+    async verificarToken(Token){
+            try {
+                const sellado = JWT.verify(Token,process.env.SECRETO);
+                 return sellado
+              } catch(error) {
+                console.log(error);
+                throw('Sección a caducado')
+            }
     }
 }
 
