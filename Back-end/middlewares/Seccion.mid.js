@@ -5,12 +5,12 @@ class verificarSeccion{
 
         try {
             const {GalletaDeToken} = req.cookies
-            const token = await helpers.verificarToken(GalletaDeToken)
-
 
             if (!GalletaDeToken) {
                 throw ('Requiere iniciar sección')
             }
+
+            const token = await helpers.verificarToken(GalletaDeToken)
 
             next()
         } catch (error) {
@@ -20,3 +20,5 @@ class verificarSeccion{
 
       }
 }
+
+module.exports = new verificarSeccion()
