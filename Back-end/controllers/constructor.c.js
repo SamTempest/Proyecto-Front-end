@@ -4,7 +4,9 @@ const fechaActual = new Date();
 
 class constructor{
     async guardar(req, res, next){
-        console.log(req.body);
+
+        console.log(req.body.pregunta);
+
         const {titulo,pregunta, descripcion,propietario_usuarioUnico} = req.body
 
         let usuario_creador = propietario_usuarioUnico
@@ -14,8 +16,7 @@ class constructor{
         
         try {
             const parametros = { usuario_creador, titulo, descripcion, fecha_modificacion, fecha_creacion }
-            const resultadoFormulario = await constructorModels.guardarFormulario(parametros)
-            console.log('resultado: ', resultadoFormulario);            
+            const resultadoFormulario = await constructorModels.guardarFormulario(parametros)            
             const formulario = resultadoFormulario.insertId
 
             for (let i = 0; i < arrayPregunta.length; i++) {
@@ -24,20 +25,19 @@ class constructor{
                 let parametrosDePregunta = {pregunta,formulario}
                 
                 const resultadoPreguntas = await constructorModels.guardarPreguntas(parametrosDePregunta)
-                console.log(resultadoPreguntas);
                 } catch (error) {
-                    console.log("error interno");
+                    console.error("error interno");
                     throw error
                 }
             }
 
             res.status("200").json({"Info":{"Resultado":"Se agregó correctamente"}})
         } catch (error) {
-            console.log("error externo");
+            console.error("error externo");
             if (error.sqlMessage) {
-                console.log(error.sqlMessage);
+                console.error(error.sqlMessage);
             } else {
-                console.log(error);
+                console.error(error);
             }
             res.status("404").json({"Info":{"Error":error}})
         }
@@ -45,24 +45,47 @@ class constructor{
     }
 
     async leerTodos(req, res, next){
-        // Vamos a buscar todos los de las base de datos 
+        
         let formulario = []
         let pregunta = []
         let guardado = false
-        // primero necesitamos un model que nos devuelva todos los de base de datos 
+
+        // Vamos a buscar todos los de las base de datos 
         try {
+            //consultamos los formularios
             const resultado = await constructorModels.leerTodosFormularios()
-            resultado.forEach(resultados => {
-            
-                guardado = resultado.filter(formularios => formularios.id == resultados.id)
+            for (let i = 0; i < resultado.length; i++) {
+                let formulariosId = resultado[i].id;
+                let formularios = resultado[i];
 
+                // consultamos las preguntas de cada formulario
+                const preguntas = await constructorModels.leerTodosPreguntas(formulariosId)
 
-                console.log(guardado);
-            });
-            
-            res.send('nice').status("200")
+                preguntas.forEach(pregun => {
+                    pregunta.push({n_pregunta:pregun.pregunta, id: pregun.id })
+                });
+
+                //creamos el objeto con la información del formulario y lo agregamos en el array del formulario
+                formulario.push({
+                    id : formularios.id,
+                    titulo : formularios.titulo,
+                    descripcion : formularios.descripcion,
+                    fecha_modificacion: formularios.fecha_modificacion,
+                    fecha_creacion : formularios.fecha_creacion,
+                    pregunta:pregunta
+                })
+
+            }
+            // enviamos el formulario
+            res.json({ 
+                        "formulario":formulario,
+                        "Info":{"Resultado":"consulta exitosa"}
+                    }).status("200");
+            // Fin
         } catch (error) {
-            
+            // creamos un manejo de error
+
+            res.status('404').json({"Info":{"Error":error}})
         }
         
 

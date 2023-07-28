@@ -23,7 +23,15 @@ class Constructor {
 
   leerTodosFormularios(){
     return new Promise((resolve, reject) => {
-      conectandoDB.query('SELECT `formularios`.*, `preguntas`.`pregunta` FROM `formularios` LEFT JOIN `preguntas` ON `preguntas`.`formulario` = `formularios`.`id`; ', function(error,resultado){
+      conectandoDB.query('SELECT * FROM `formularios` ', function(error,resultado){
+        if (error) reject(error);
+        resolve(resultado);
+      })
+    })
+  }
+  leerTodosPreguntas(formulario){
+    return new Promise((resolve, reject) => {
+      conectandoDB.query('SELECT * FROM `preguntas` WHERE formulario = ? ',[formulario] , function(error,resultado){
         if (error) reject(error);
         resolve(resultado);
       })
