@@ -1,6 +1,8 @@
 const e = require("express");
 const registroModels = require("../models/registro.m")
 const bcryptjs = require('bcryptjs');
+const registroHelper = require('../helpers/registro.h')
+
 
 class registroControllers {
     
@@ -21,9 +23,6 @@ class registroControllers {
                 throw ("La fecha tiene que estar representada como Date")
             }
              const listado = await registroModels.verDB()
-             console.log('estamos en registro')
-             console.log(typeof(listado))
-             console.log("hasta aqui lo esperadoooooooo");
             for (let i = 0; i < listado.length; i++) {
                 const listados = listado[i];
                 if (listados.usuario_unico == datos.usuario_unico) {
@@ -50,8 +49,41 @@ class registroControllers {
 
 
     }
-}
 
+    async verificarIngreso(req, res, next){
+        const {usuario_unico ,contrasena} = req.body
+        const datos = {usuario_unico ,contrasena}
+        try {
+            const listado = await registroModels.verDB()
+            for (let i = 0; i < listado.length; i++) {
+                const listados = listado[i];
+                
+                if (listados.usuario_unico == datos.usuario_unico) {
+                    let verificarContrasena = await bcryptjs.compare(datos.contrasena , listados.contrasena)
+                    console.log(verificarContrasena);
+                    if (!verificarContrasena) {
+                         throw("error en la contraseña");
+                    }
+                    console.log(verificarContrasena);
+
+                    const galleta = await registroHelper.tockeRegistrar(datos)
+
+                    return res.setHeader('Set-Cookie', galleta).status('200').json({"Info":{"Resultado":"Se inicio sección correctamente"}})
+                }
+
+
+            }
+            let mensajeError = `Nombre de usuario ${datos.usuario_unico} no existente`
+            throw (mensajeError)
+
+
+        } catch (error) {
+            console.log(error);
+            res.status("404").json({"Info":{"Error":error}})
+        }
+
+    }
+}
 
 
 module.exports = new registroControllers()
