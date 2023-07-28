@@ -31,6 +31,6 @@ function registroUsuario(e) {
 
         //Se transforma los datos a formato JSON**********************************************
         var json = JSON.stringify(data);
-        //  window.location.href = "login.html";
+          window.location.href = "login.html";
     }
 }

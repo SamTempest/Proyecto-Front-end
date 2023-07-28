@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./visualizar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Encuestas</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../" alt="">
+        </div>
+        <div class="title">
+            <h1>Responder Encuestas</h1>
+        </div>
+        <div class="buttonVolver" title="Volver">
+            <a href="../index.html">
+                <button id="CerrarButton">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="subTitle">
+            <h4>Bienvenido a nuestro apartado especializado en responder encuestas, por favor selecciona una encuesta para responderla o utiliza nuestro buscador para realizar una busqueda</h4>
+            <div class="search">
+                <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <input type="text" name="Buscar" id="buscador" name="search" class="buscador">
+            </div>
+            
+       </section>
+        <section class="contenedor">
+            <aside class="listaEncuestas" id="listaEncuestas">
+                
+            </aside>
+            
+            <section class="containerEncuesta" id="encuestas">
+            </section>
+            
+        </section>
+        <section class="contEnviar">
+            <button class="enviarResp" id="enviarResp">Enviar</button>
+        </section>
+    </main>
+    <script src="./visualizarLista.js"></script>
+    <script src="mostratEncuesta.js"></script>
+    <script src="buscador.js"></script>
+    <script src="./guardarRespuestas.js"></script>
+
+</body>
+</html>

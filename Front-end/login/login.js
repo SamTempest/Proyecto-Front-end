@@ -4,7 +4,7 @@ let contrasena = document.getElementById("password");
 let button = document.getElementById("button");
 
 
-
+//Se inicia el escuchador de eventos
 button.addEventListener(`click`, iniciarSesion)
 
 

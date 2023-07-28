@@ -5,6 +5,12 @@ const eliminar = document.getElementById("eliminar");
 const guardar = document.getElementById("guardar");
 
 
+//Se obtienen los datos de sessionStorage
+const nombreUser = sessionStorage.getItem('user');
+const datoUser ={ usuarioCreador: nombreUser}
+console.log(nombreUser);
+
+
 //Se generan los array para contener los datos a enviar
 let enviar = []
 let listaPreguntas = [];
@@ -58,6 +64,9 @@ function anadirElemento(){
     }
 }
 
+
+
+
 //Se anicializa un escuchador de eventos para eliminar los elmentos HTML de forma Global
 eliminar.addEventListener(`click`, eliminarElemento);
 
@@ -98,7 +107,7 @@ function guardarElemento() {
             
             //Se identifica y guarda el valor del titulo
             if (existePregunta == 1) {
-                let prepararEnvio = {nombre: guardarDato}
+                let prepararEnvio = {titulo: guardarDato}
                 enviar.push(prepararEnvio)
 
                 existePregunta = existePregunta-1;//se ajusta el contador
@@ -120,6 +129,7 @@ function guardarElemento() {
             }
             
         }
+        enviar.push(datoUser);
         //se ordenan los array
         enviar.reverse();
         listaPreguntas.reverse();
@@ -135,7 +145,7 @@ function guardarElemento() {
         console.log(json);
         
         //se refresca la paguina
-        location.reload();
+        // location.reload();
     }else{
 
     }
