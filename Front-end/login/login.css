@@ -23,6 +23,8 @@ form {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+
+
 form .title {
     color: #252525;
     font-size: 2.8vw;
@@ -75,4 +77,23 @@ form button{
 }
 .date{
     transform: translateX(1.6vw);
+}
+
+@media screen and (max-width:900px){
+    form {
+        width: 70vw;
+        height: 65vh;
+        justify-content: space-around;
+    }
+    form .title , form button{
+        font-size: 3vh;
+
+    }
+
+    form label input , form label .fa-solid , form label .fecha , form .link{
+        font-size: 2.5vh;
+    }
+    .date input {
+        font-size: 2.3vh;
+    }
 }

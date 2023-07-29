@@ -1,5 +1,9 @@
 /* Estilos de la descripcion y el buscador */
 
+.title {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+}
 .subTitle{
     display: block;
     width: 100%;
@@ -40,7 +44,28 @@
 .fa-solid{
     font-size: 2.2vw;
 }
+@media screen and (max-width:900px) {
 
+    .subTitle {
+        display: block;
+    }
+    .subTitle h4{
+        width: 70%;
+        font-size: 2vh;
+        margin: auto;
+        padding: auto;
+        text-align: center;
+    }
+    .subTitle .search {
+        margin-right: 12vh;
+        margin-top: 2.5vw;
+        text-align: center;
+    }
+    .subTitle input {
+        font-size: 2vh;
+        height: 3vh;
+    }
+}
 
 
 
@@ -175,14 +200,56 @@ left: 0vw;
     
 }
 
-
-
-
-
-
-
-
-
 .filtro{
     display: none;
+}
+
+@media screen and (max-width:900px) {
+    .contenedor {
+        margin-top: 8vh;
+        width: 90%;
+        height: 60vh;
+    }
+    .listaEncuestas {
+        width: 30%;
+    }
+    .containerEncuesta {
+        width: 70%;
+    }
+
+
+    .tituloPreg {
+        font-size: 2vh;
+    }
+    .descPreg{
+        font-size: 1.8vh;
+    }
+    .UserEncuesta {
+        font-size: 1.4vh;
+        color: #539393;
+    }
+
+
+    .tituloActivo {
+        font-size: 3vh;
+    }
+    .descActivo , .inputResp{
+        font-size: 2vh;
+    }
+    .descActivo{
+        text-align: center;
+    }
+    .h4Activo {
+        font-size: 2.2vh;
+    }
+    .UserActivo {
+        font-size: 1.4vh;
+        color: #539393;
+        margin: auto;
+    }
+
+    .enviarResp{
+        height: 4vh;
+        font-size: 2vh;
+    }
 }
