@@ -20,7 +20,7 @@ function registroUsuario(e) {
         alert("Las contraseñas no coinciden")
     }
     else{
-        const data = {//Se guardan los datos ingresados en la varible "data"
+        const data = {//Se guardan los datos ingresados en la variable "data"
             username:username.value,
             password: password.value,
             telefono: telefono.value,
@@ -31,6 +31,20 @@ function registroUsuario(e) {
 
         //Se transforma los datos a formato JSON**********************************************
         var json = JSON.stringify(data);
+
+        
+
           window.location.href = "login.html";
     }
 }
+
+
+async function enviarBackend(){
+    try {
+        const repuesta = await (await fetch('http://localhost:3000/constructor')).json()
+        console.log(repuesta);
+    } catch (error) {
+        console.error(error);
+    }
+}
+enviarBackend()

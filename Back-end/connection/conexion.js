@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-console.log('estoy en conexion')
+
 
 var mysql = require('mysql2');
 var connection = mysql.createConnection({
