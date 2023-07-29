@@ -78,6 +78,7 @@ class constructor{
 
             }
             // enviamos el formulario
+            console.log(formulario);
             res.json({ 
                         "formulario":formulario,
                         "Info":{"Resultado":"consulta exitosa"}
