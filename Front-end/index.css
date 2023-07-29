@@ -1,0 +1,142 @@
+html{
+    background-color: #c4dfdf;
+}
+
+main{
+    height: 45vw;
+}
+
+h1{
+    font-size: 4vw;
+    text-align: center;
+    margin-top: 3vw;
+}
+
+h3{
+    font-size: 4vw;
+    margin-top: 4vw;
+    -webkit-text-stroke: 0.04vw #252525;
+  color: #C4DFDF;
+  text-align: justify;
+}
+
+.FlexContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: flex-start;
+    width: 65%;
+    height: 80vh;
+    overflow: auto;
+    flex-direction: row;
+    margin-left:15% ;
+    
+}
+
+.FlexContainer div {
+    padding: 7vw 1vw ;
+    width: 20.49vw;
+    height: 28.68vw;
+    margin: px;
+    background-color: lightblue;
+    background: rgb(232,230,228);
+    border-radius: 2vw;
+    background: linear-gradient(0deg, rgba(232,230,228,1) 50%, rgba(196,223,223,1) 50%);
+    transition: transform 1s ease;
+}
+
+
+
+.button{
+    margin-left: 1.75vw;
+    width: 15vw;
+    height: 3vw;
+    border-radius: .8vw;
+    font-size: 1.5vw;
+    border: solid 0.2vw #454545;
+    color: #454545;
+    transition: all 0.2s ease-in-out;
+    background-color: #C4DFDF;
+    margin-bottom: 6vw;
+    transition: transform 1s ease;
+}
+
+
+.button:hover{
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    background-color: #E3F4F4;
+}
+
+.FlexContainer div:hover{
+    border: solid #555555 0.1vw;
+    transform: scale(1.05);
+}
+
+.FlexContainer div p{
+    font-size: 1.5vw;
+}
+
+@media screen and (max-width: 450px) {
+    .FlexContaine{
+        flex-direction: column;
+    }
+    .FlexContainer div{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    main{
+        height: 100vw;
+    }
+    h1{
+        margin-top: 20%;
+        font-size: 8vw;
+    }
+    h3{
+        margin-top: 15vw;
+        font-size: 6vw; 
+    }
+    .button{
+        font-size: 2vw;
+        height: 6vw;
+    }
+    .FlexContainer div p{
+        margin-top: 10vw;
+        font-size: 2vw;
+    }
+}   
+
+@media screen and (max-width: 825px) {
+    .FlexContainer div{
+        margin-top: -10vw;
+        width: 25vw;
+        height: 50vw;
+        
+    }
+    main{
+        height: 80vw;
+    }
+    h1{
+        margin-top: 10%;
+        font-size: 6vw;
+    }
+    h3{
+        margin-top: 5vw;
+        font-size: 4.5vw; 
+    }
+    .button{
+        font-size: 2vw;
+        margin-left: 4vw;
+        height: 8vw;
+    }
+
+
+
+    
+    .FlexContainer div p{
+        margin-top: 10vw;
+        font-size: 2vw;
+    }
+}   
