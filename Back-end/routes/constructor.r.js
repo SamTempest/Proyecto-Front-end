@@ -11,4 +11,7 @@ router.post('/', constructorC.guardar, function(req, res, next) {
   res.status("200").json({"perfecto":"llego"})
 });
 
+router.get('/', constructorC.leerTodos)
+
+
 module.exports = router;

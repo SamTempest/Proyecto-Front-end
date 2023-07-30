@@ -1,0 +1,188 @@
+/* Estilos de la descripcion y el buscador */
+
+.subTitle{
+    display: block;
+    width: 100%;
+    height: 10vw;
+    padding: 3vw 5vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.subTitle h4{
+    width: 50vw;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: 500;
+    font-size: 1.5vw;
+    color: #252525;
+}
+
+.subTitle input{
+    border-radius: 0.3vw;
+    border: none;
+    border-bottom: solid  #252525 0.04vw;
+    padding: 0 1vw;
+    width: 2vw;
+    outline: none;
+    color: #252525;
+    font-size: 1.5vw;
+    height: 2.3vw;
+    margin-top: .8vw;
+    transition: width 0.5s ease;
+    outline: none;
+    background-color: #F8F6F4;
+}
+.subTitle input:focus{
+    width: 17vw;
+}
+
+.fa-solid{
+    font-size: 2.2vw;
+}
+
+
+
+
+
+
+/* Estilos del aside contenedor de la lista de formularios */
+.contenedor{
+    display: flex;
+    background: #F8F6F4;
+    width: 70vw;
+    height: 45vw;
+    margin: auto;
+    overflow: hidden;
+    justify-content: right;
+    align-items: center;
+    border-radius: 1.5vw;
+    border: solid #C4DFDF 0.4vw ;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.listaEncuestas{
+    background: #F8F6F4;
+    overflow-y: scroll;
+    width: 22vw;
+    height: 100%;
+    margin-left: -37%;
+    padding: 1vw 0;
+}
+
+
+.preguntadiv{
+    padding: 1vw 1vw;
+    border-bottom: #C4DFDF solid 0.04vw;
+    max-width: 22vw;
+}
+.tituloPreg{
+    font-size: 1.6vw;
+    margin-bottom: 0.5vw;
+    word-wrap: break-word;
+}
+.descPreg{
+    font-size: 1.4vw;
+    margin-bottom: 0.7vw;
+    word-wrap: break-word;
+}
+.UserEncuesta{
+    font-size: 1vw;
+    text-align: right;
+    color: #6bbdbd;
+    word-wrap: break-word;
+}
+
+
+
+.containerEncuesta{
+left: 0vw;
+    width: 47vw;
+    padding: 2vw 0.5vw;
+    height:100%;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+.tituloActivo{
+    margin: 0 3vw;
+    font-size: 2.75vw;
+    text-align: center;
+    padding: 0.5vw;
+}
+.descActivo{
+    margin: 0 3vw;
+    font-size: 1.75vw;
+    font-weight: 400;
+
+}
+.UserActivo{
+    margin: 0 2.5vw;
+    font-size: 1vw;
+    margin-left: 65%;
+    color: #6bbdbd;
+}
+.divActivo{  
+    height: fit-content;
+    padding: 1vw 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.h4Activo{
+    font-size: 2vw;
+    font-weight: 100;
+    width: 100%;
+    background-color:  #F8F6F4;
+}
+.inputResp{
+    margin-top: 1.5vw;  
+    font-size: 1.5vw;
+    background-color:  #F8F6F4;
+    border: none;
+    width: 98%;
+    outline: none;
+    border-bottom: #C4DFDF solid 0.04vw;
+    word-wrap: break-word;
+}
+
+
+
+/* Estilos del boton Enviar */
+.enviarResp{
+    padding: 1vw 4vw ;
+    height: 5vw;
+    transform: translatex(-9vw);
+    height: 4vw;
+    font-size: 2vw;
+    font-weight: 500;
+    color: #454545;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    background-color: #C4DFDF;
+    width: 73%;
+    margin-left: 23%;
+    z-index: -1;
+    border-radius: 1.5vw;
+}
+
+
+
+.enviarResp:hover{
+    transform: scale(1.05) translatex(-9vw);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    background-color: #E3F4F4;
+    
+}
+
+
+
+
+
+
+
+
+
+.filtro{
+    display: none;
+}

@@ -20,6 +20,23 @@ class Constructor {
       })
     })
   } 
+
+  leerTodosFormularios(){
+    return new Promise((resolve, reject) => {
+      conectandoDB.query('SELECT * FROM `formularios` ', function(error,resultado){
+        if (error) reject(error);
+        resolve(resultado);
+      })
+    })
+  }
+  leerTodosPreguntas(formulario){
+    return new Promise((resolve, reject) => {
+      conectandoDB.query('SELECT * FROM `preguntas` WHERE formulario = ? ',[formulario] , function(error,resultado){
+        if (error) reject(error);
+        resolve(resultado);
+      })
+    })
+  }
 }
 
 module.exports = new Constructor();
