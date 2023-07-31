@@ -4,9 +4,7 @@ var router = express.Router();
 let verificador = require('../middlewares/Seccion.mid')
 var constructorC=require('../controllers/constructor.c')
 
-router.post('/', verificador.seccion ,constructorC.guardar, function(req, res, next) {
-  res.status("200").json({"perfecto":"llego"})
-});
+router.post('/', verificador.seccion ,constructorC.guardar);
 
 router.get('/', constructorC.leerTodos)
 
