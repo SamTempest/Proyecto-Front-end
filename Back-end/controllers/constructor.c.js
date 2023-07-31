@@ -3,13 +3,6 @@ const fechaActual = new Date();
 
 class constructor{
 
-    async verTodo(res, req, next){
-        
-    }
-
-
-
-
     async guardar(req, res, next){
 
         console.log(req.body.pregunta);
