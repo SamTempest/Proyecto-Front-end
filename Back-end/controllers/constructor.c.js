@@ -62,9 +62,9 @@ class constructor{
                 const preguntas = await constructorModels.leerTodosPreguntas(formulariosId)
 
                 preguntas.forEach(pregun => {
-                    pregunta.push({n_pregunta:pregun.pregunta, id: pregun.id })
+                    pregunta.push({pregunta:pregun.pregunta, id: pregun.id })
                 });
-
+                const userName = await constructorModels.creadorDelFormulario(formularios.id)
                 //creamos el objeto con la información del formulario y lo agregamos en el array del formulario
                 formulario.push({
                     id : formularios.id,
@@ -72,7 +72,8 @@ class constructor{
                     descripcion : formularios.descripcion,
                     fecha_modificacion: formularios.fecha_modificacion,
                     fecha_creacion : formularios.fecha_creacion,
-                    pregunta:pregunta
+                    pregunta:pregunta,
+                    datoUser:userName[0].usuario_unico
                 })
 
             }

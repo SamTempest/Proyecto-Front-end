@@ -37,6 +37,15 @@ class Constructor {
       })
     })
   }
+  creadorDelFormulario(formulario){
+    return new Promise((resolve, reject) => {
+      conectandoDB.query('SELECT * FROM `usuarios` WHERE id = ? ',[formulario] , function(error,resultado){
+        if (error) reject(error);
+        resolve(resultado);
+      })
+    })
+  }
+
 }
 
 module.exports = new Constructor();

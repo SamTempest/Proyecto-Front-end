@@ -9,7 +9,7 @@ class registroControllers {
     //registrar nuevo usuario
     async save(req, res, next) {
         //datos
-        const { usuario_unico , contrasena , nombre_completo , correo , edad, fecha_nacimiento } = req.body;
+        const { usuario_unico , contrasena , nombre_completo , correo , telefono, fecha_nacimiento } = req.body;
         const datos = { usuario_unico , contrasena , nombre_completo , correo, edad, fecha_nacimiento };
 
         console.log('estamos en datos')

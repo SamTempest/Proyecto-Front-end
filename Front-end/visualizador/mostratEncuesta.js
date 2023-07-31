@@ -8,67 +8,34 @@ listaEncuestas.addEventListener("click", function(event) {
 
     //El elemento seleccionado se combierte a JSON y se envia a la base de datos **************************************
     let enviarElemento = JSON.stringify(elementoClickeado)
-//************************************************************************ */
+    //************************************************************************ */
 
-console.log(enviarElemento);
+    console.log(enviarElemento);
 
 });
 
+async function enviarBackend(){
+    try {
+        const repuesta = await (await fetch('http://localhost:3000/constructor')).json()
+        return repuesta
+        console.log(repuesta);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function ordenarFunciones() {
+    const resultado = await enviarBackend()
+    const preguntas = resultado.formulario
+    console.log(preguntas);
+    let adaptarPreguntas = preguntas[0];
+    let preguntasExtraidas = adaptarPreguntas["pregunta"]  
+    obtener(preguntas,preguntasExtraidas)
+}
 
 
 
-
-
- 
-//Se obtiene los datos de la consulta a la base de datos ***************************************
-const consultaPregunta = JSON.stringify( [// se finge recibir los datos en formato JSON
-    // {
-    //     "titulo":"Encuesta 1",
-    //     "descripcion":"descripcion-1",
-    //     "pregunta":[{"pregunta":"Precio?"},{"pregunta":"Factible,no?"},{"pregunta":"Factible"} ,{"pregunta":"Factible,si?"}],
-    //     "fecha":"2023-07-27T19:57:19.597Z",
-    //     "datoUser":"PedroJH_1234",
-    // },
-    {
-        "titulo":"Encuesta aaaaaaaaaaaaaaaaaaa2",
-        "descripcion":"descripcisssssssssssssssssssssssssssssssssssssssssssssson-2",
-        "pregunta":[{"pregunta":"Paaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa    aaaaaaaaaaaaaaaaaaaaaaaaaarecio?"},{"pregunta":"Factible,jano?"},{"pregunta":"Factible"} ,{"pregunta":"Factible,si?"}],
-        "fecha":"2023-07-27T19:57:19.597Z",
-        "datoUser":"Pedro2",
-    },
-    // {
-    //     "titulo":"Encuesta 3",
-    //     "descripcion":"descripcion-3",
-    //     "pregunta":[{"pregunta":"Precio?"},{"pregunta":"quizas,no?"},{"pregunta":"Factible"} ,{"pregunta":"Factible,si?"},{"pregunta":"Factible,si?"},{"pregunta":"Factible,si?"},{"pregunta":"Factible,si?"}],
-    //     "fecha":"2023-07-27T19:57:19.597Z",
-    //     "datoUser":"Pedro3",
-    // },
-    // {
-    //     "titulo":"Encuesta 4",
-    //     "descripcion":"descripcion-4",
-    //     "pregunta":[{"pregunta":"Precio?"},{"pregunta":"Factible,no?"},{"pregunta":"Factible"} ,{"pregunta":"Factible,si?"}],
-    //     "fecha":"2023-07-27T19:57:19.597Z",
-    //     "datoUser":"Pedro4",
-    // },
-  ])
-
-//***********************************************
-
-
-//Se combierte el JSON en Array
-let preguntas = JSON.parse(consultaPregunta);
-let adaptarPreguntas = preguntas[0];
-let preguntasExtraidas = adaptarPreguntas["pregunta"]
-
-
-
-
-
-
-
-obtener(preguntas)
-
-function obtener(preguntas) {
+function obtener(preguntas,preguntasExtraidas) {
     preguntas.forEach(encuesta => {//se usa la funcion forEach para recorrer y extrer los datos del array
 
         let seccion = document.getElementById("encuestas");//Se obtienen los elemtos HTML
@@ -120,3 +87,4 @@ function obtener(preguntas) {
       });
 }
 
+ordenarFunciones()

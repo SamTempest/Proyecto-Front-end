@@ -9,6 +9,7 @@ var pruebaRouter = require('./routes/prueba.r');
 var homeRouter = require('./routes/home')
 var constructorRouter = require('./routes/constructor.r')
 var registroRouter = require('./routes/registro.r')
+var cors = require('cors')
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/prueba', pruebaRouter);
