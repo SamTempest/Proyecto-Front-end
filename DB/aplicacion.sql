@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2023 at 09:36 PM
+-- Generation Time: Jul 31, 2023 at 05:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -30,11 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `formularios` (
   `id` int(15) NOT NULL,
   `usuario_creador` int(15) NOT NULL,
-  `nombre` text NOT NULL,
+  `titulo` text NOT NULL,
   `descripcion` text NOT NULL,
   `fecha_modificacion` date NOT NULL,
-  `fecha_creacion` text NOT NULL
+  `fecha_creacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `formularios`
+--
+
+INSERT INTO `formularios` (`id`, `usuario_creador`, `titulo`, `descripcion`, `fecha_modificacion`, `fecha_creacion`) VALUES
+(1, 3, 'Prueba de Azulejos', 'Los azulejos son aves....', '2023-07-11', '2023-07-01');
 
 -- --------------------------------------------------------
 
@@ -48,6 +55,13 @@ CREATE TABLE `informacion_res` (
   `formulario` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `informacion_res`
+--
+
+INSERT INTO `informacion_res` (`id`, `usuario_respuesta`, `formulario`) VALUES
+(1, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +73,14 @@ CREATE TABLE `preguntas` (
   `pregunta` text NOT NULL,
   `formulario` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `preguntas`
+--
+
+INSERT INTO `preguntas` (`id`, `pregunta`, `formulario`) VALUES
+(1, '¿Cuántas horas duerme un azulejo?', 1),
+(2, 'Descripcion de un azulejo', 1);
 
 -- --------------------------------------------------------
 
@@ -83,9 +105,18 @@ CREATE TABLE `usuarios` (
   `id` int(15) NOT NULL,
   `usuario_unico` varchar(20) NOT NULL,
   `contrasena` varchar(1000) NOT NULL,
-  `correo` varchar(100) NOT NULL,
-  `nombre_completo` text NOT NULL
+  `correo` varchar(1000) NOT NULL,
+  `n_telefonico` int(15) NOT NULL,
+  `edad` int(15) NOT NULL,
+  `fecha_nacimiento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario_unico`, `contrasena`, `correo`, `n_telefonico`, `edad`, `fecha_nacimiento`) VALUES
+(3, 'Pepito', '$2a$08$w52mEOX45YKrh6GvKf79YuKp1aaD72EskmOcyagwdtcDS3ITOs53q', 'pepito@gmail.com', 0, 18, '2023-07-01');
 
 --
 -- Indexes for dumped tables
@@ -103,7 +134,8 @@ ALTER TABLE `formularios`
 --
 ALTER TABLE `informacion_res`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_respuesta` (`usuario_respuesta`);
+  ADD KEY `usuario_respuesta` (`usuario_respuesta`),
+  ADD KEY `formulario` (`formulario`);
 
 --
 -- Indexes for table `preguntas`
@@ -134,31 +166,31 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `formularios`
 --
 ALTER TABLE `formularios`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `informacion_res`
 --
 ALTER TABLE `informacion_res`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
@@ -174,7 +206,8 @@ ALTER TABLE `formularios`
 -- Constraints for table `informacion_res`
 --
 ALTER TABLE `informacion_res`
-  ADD CONSTRAINT `informacion_res_ibfk_1` FOREIGN KEY (`usuario_respuesta`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `informacion_res_ibfk_2` FOREIGN KEY (`formulario`) REFERENCES `formularios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `informacion_res_ibfk_3` FOREIGN KEY (`usuario_respuesta`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `preguntas`
