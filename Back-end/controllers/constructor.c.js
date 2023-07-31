@@ -5,7 +5,6 @@ class constructor{
 
     async guardar(req, res, next){
 
-        console.log(req.body.pregunta);
 
         const {titulo,pregunta, descripcion,propietario_usuarioUnico} = req.body
 
