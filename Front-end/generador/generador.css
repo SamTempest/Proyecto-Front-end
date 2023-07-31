@@ -2,7 +2,10 @@
 
 /* ********************Estilos del body******************** */
 
-
+.title {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+}
 .subTitle{
     margin-left: 5%;
     margin-top: 2%;
@@ -50,13 +53,32 @@
     background-color: #C4DFDF;
 }
 
-
 .boton:hover{
     transform: scale(1.1);
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
     background-color: #E3F4F4;
 }
 
+@media screen and (max-width:900px) {
+
+    .subTitle{
+        width: 70%;
+        font-size: 2vh;
+        margin: auto;
+        text-align: center;
+    }
+    .conteinerButton {
+        margin-top: 6vh;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .boton {
+        width: 15vh;
+        height: 3.5vh;
+        font-size: 2.5vh;
+
+    }
+}
 
 
 
@@ -105,7 +127,21 @@
     font-size: 2.2vw;
 }
 
-
 .conteinerPregunta{
     border: solid #252525 1px;
 }
+
+@media screen and (max-width:900px) {
+    .tituloPregunta input{
+        font-size: 2.3vh;
+    }
+    .descripcionPregunta input {
+        font-size: 2.1vh;
+    }
+    .pregunta {
+        font-size: 1.9vh;
+    }
+    
+}
+
+
