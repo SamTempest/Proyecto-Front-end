@@ -14,21 +14,23 @@ listaEncuestas.addEventListener("click", function(event) {
 
 });
 
-async function enviarBackend(){
+
+
+async function enviarBackend(){ // Con esta function vamos a pedirle al backend con el método GET, el cual responde con una .json devuelta 
     try {
-        const repuesta = await (await fetch('http://localhost:3000/constructor')).json()
-        return repuesta
+        const repuesta = await (await fetch('http://localhost:3000/constructor')).json() //usamos método Get usando fetch y luego el .json lo que hace es transformar la repuesta de json a array para poder trabajarlo 
+        return repuesta     // devolvemos la repuesta en el formato array 
         console.log(repuesta);
     } catch (error) {
         console.error(error);
     }
 }
 
-async function ordenarFunciones() {
-    const resultado = await enviarBackend()
-    const preguntas = resultado.formulario
-    console.log(preguntas);
-    let adaptarPreguntas = preguntas[0];
+async function ordenarFunciones() { // esta función lo que hace es hacer que espere que se complete la respuesta de la API para poder trabajar con la repuesta 
+    const resultado = await enviarBackend() // esperamos a que responda la API
+    const preguntas = resultado.formulario  // filtramos solo los formularios (debido a que responde también con información del estado, ejemplo si se ejecuto todo correcto responde con un mensaje)
+    console.log(preguntas); // borrar cuando se vaya a entregar
+    let adaptarPreguntas = preguntas[0]; // esta parte ta era lo que había antes
     let preguntasExtraidas = adaptarPreguntas["pregunta"]  
     obtener(preguntas,preguntasExtraidas)
 }
